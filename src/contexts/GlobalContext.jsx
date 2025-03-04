@@ -1,4 +1,4 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 const GlobalContext = createContext();
 
@@ -21,7 +21,7 @@ const GlobalProvider = ({children}) => {
     };
 
     return (
-        <GlobalContext.Provider value={{post, posts, setPost, setPosts}}>
+        <GlobalContext.Provider value={{post, posts, fetchPost, fetchPosts}}>
             {children}
         </GlobalContext.Provider>
     )

@@ -1,20 +1,13 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function Post() {
-    const {id} = useParams()
-    const [post, setPost] = useState({});
-
-    const fetchPost = () => {
-        fetch(`http://localhost:3000/posts/api/${id}`)
-            .then((res) => res.json())
-            .then(data => setPost(data))
-        
-    };
+    const {id} = useParams();
+    const {post, fetchPost} = useContext(GlobalContext);
 
     const navigate = useNavigate();
-
-    useEffect(fetchPost, [id]);
+    useEffect(() => fetchPost(id), [id]);
 
     return (
         <div className="container">

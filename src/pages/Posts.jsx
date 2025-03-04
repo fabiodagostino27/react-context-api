@@ -1,14 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function Posts() {
-    const [posts, setPosts] = useState([]);
-
-    const fetchPosts = () => {
-        fetch(url)
-            .then((res) => res.json())
-            .then(data => setPosts(data))
-    }
+    const {posts, fetchPosts} = useContext(GlobalContext)
 
     useEffect(fetchPosts, []);
 

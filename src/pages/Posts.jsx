@@ -5,7 +5,7 @@ export default function Posts() {
     const [posts, setPosts] = useState([]);
 
     const fetchPosts = () => {
-        fetch("http://localhost:3000/posts/api")
+        fetch(url)
             .then((res) => res.json())
             .then(data => setPosts(data))
     }
